@@ -9,9 +9,13 @@ public class exceptions {
         myList.add("Goodbye World");
 
         for(int i = 0; i < myList.size(); i++) {
+            try{
             Integer castedValue = (Integer) myList.get(i);
+        } catch(ClassCastException e) {
+            System.out.println("Error: on index " + i + "with value: " + myList.get(i) + ". reason:" + e);
         }
         
         
     }
+}
 }
