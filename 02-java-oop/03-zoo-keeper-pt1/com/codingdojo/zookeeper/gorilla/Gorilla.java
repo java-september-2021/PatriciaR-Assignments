@@ -1,3 +1,6 @@
+package com.codingdojo.zookeeper.gorilla;
+import com.codingdojo.zookeeper.mammal.Mammal;
+
 public class Gorilla extends Mammal {
 
     public Gorilla(int energyLevel) {

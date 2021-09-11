@@ -1,3 +1,4 @@
+package com.codingdojo.zookeeper.mammal;
 public class Mammal{
     protected int energyLevel;
 

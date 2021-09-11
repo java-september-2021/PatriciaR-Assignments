@@ -1,3 +1,6 @@
+package com.codingdojo.zookeeper.bat;
+import com.codingdojo.zookeeper.mammal.Mammal;
+
 public class Bat extends Mammal{
 
     public Bat(int energyLevel) {
