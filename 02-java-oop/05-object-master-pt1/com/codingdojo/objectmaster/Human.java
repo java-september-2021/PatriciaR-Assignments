@@ -1,6 +1,7 @@
+package com.codingdojo.objectmaster;
 
 
- public class Human{
+public class Human{
     protected int strength = 3;
     protected int stealth = 3;
     protected int intelligence = 3;
@@ -14,6 +15,14 @@
         intelligence = 3;
         health = 100;
     }
+
+    public Human(int strength, int stealth, int intelligence, int health){
+        this.strength = strength;
+        this.intelligence = intelligence;
+        this.stealth = stealth;
+        this.health = health;
+    }
+
 
     public void setStrength(int strength){
         this.strength = strength;
@@ -53,7 +62,7 @@
         target.setHealth(targetHealth);
     
     }
-
+    
     
 
 }
