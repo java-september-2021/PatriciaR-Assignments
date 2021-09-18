@@ -20,7 +20,7 @@ public class DojoController {
 				return "SJ dojo is headquarters";
 				
 			}
-			return location;
+			return location + " not a valid location";
 		
 			
 	}
