@@ -1,0 +1,21 @@
+
+
+.wrapper {
+	width: 900px;
+	background-color: white;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+
+p {
+	color: red;
+}
+
+form {
+	width: 200px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	
+}
