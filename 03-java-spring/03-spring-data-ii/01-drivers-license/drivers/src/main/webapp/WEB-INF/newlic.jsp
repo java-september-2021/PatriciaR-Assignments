@@ -23,12 +23,13 @@
     <p>
         <form:label path="state">State</form:label>
         <form:errors path="state"/>
-        <form:input path="state"/>
+        <form:input path="state"/>		
     </p>
     <p>
     	<form:label path="expiration_date">Date</form:label>
     	<form:errors path="expiration_date"/>
     	<form:input type="date" path="expiration_date"/>
+    	
     	
     </p>
    
@@ -37,9 +38,10 @@
 
 <c:forEach items="${lics}" var ="lic">
 <p>
-${lic.first_name}
-${lic.last_name}
+${lic.person.first_name}
+${lic.person.last_name}
 ${lic.state}
+${lic.getNumber()}
 
 </p>
 </c:forEach>

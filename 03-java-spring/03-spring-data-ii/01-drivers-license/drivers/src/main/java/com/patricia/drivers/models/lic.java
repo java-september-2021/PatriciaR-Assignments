@@ -14,6 +14,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -23,7 +24,7 @@ public class lic {
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
-	    private String number;
+	    
 	    @DateTimeFormat(pattern ="yyyy-mm-dd")
 	    private Date expiration_date;
 	    private String state;
@@ -36,11 +37,11 @@ public class lic {
 		public lic() {
 			
 		}
-		public lic(Long id, String number, Date expiration_date, String state, Date createdAt, Date updatedAt,
+		public lic(Long id,Date expiration_date, String state, Date createdAt, Date updatedAt,
 				Person person) {
 			
 			this.id = id;
-			this.number = number;
+		
 			this.expiration_date = expiration_date;
 			this.state = state;
 			this.createdAt = createdAt;
@@ -61,12 +62,7 @@ public class lic {
 		public void setId(Long id) {
 			this.id = id;
 		}
-		public String getNumber() {
-			return number;
-		}
-		public void setNumber(String number) {
-			this.number = number;
-		}
+		
 		public Date getExpiration_date() {
 			return expiration_date;
 		}
@@ -78,6 +74,10 @@ public class lic {
 		}
 		public void setState(String state) {
 			this.state = state;
+		}
+		
+		public String getNumber() {
+			return String.format("%05d", id);
 		}
 		public Date getCreatedAt() {
 			return createdAt;

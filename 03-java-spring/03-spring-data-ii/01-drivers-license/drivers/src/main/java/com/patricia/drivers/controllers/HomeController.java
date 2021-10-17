@@ -48,7 +48,9 @@ public class HomeController {
 		List<Person> persons = dService.allPersons();
 		List<lic> lics = lService.allLic();
 		model.addAttribute("persons", persons);	
-		model.addAttribute("lic", lics);
+		model.addAttribute("lics", lics);
+		System.out.println("number of lics");
+		System.out.println(lics.size());
 			return "newlic.jsp";
 	}
 	
