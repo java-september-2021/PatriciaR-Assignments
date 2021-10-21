@@ -36,4 +36,13 @@ public class ProductService {
 	public List<Product> findProdByCatNotContains(Category category){
 		return prodRepo.findByCategoriesNotContains(category);
 	}
+	
+	public void addCatToProd(Product product, Category category) {
+		List<Category> categories = product.getCategories();
+		categories.add(category);
+		this.prodRepo.save(product);
+	}
+	
+	
+	
 }

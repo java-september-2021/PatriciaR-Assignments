@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.patricia.products.Models.Category;
 import com.patricia.products.Models.Product;
@@ -60,14 +61,35 @@ public class HomeController {
 	}
 	
 	@GetMapping("/showprod/{prodid}")
-		public String showProduct(@ModelAttribute("products") Product p,@PathVariable("prodid") Long id, Model model) {
-			model.addAttribute("product", this.pService.getProduct(id));
-			List <Category> cat = this.cService.CatNotContains(p);
-			model.addAttribute("cat", cat);
+		public String showProduct(@ModelAttribute("Product") Product product,@PathVariable("prodid") Long id, Model model) {
+			Product thisProduct = this.pService.getProduct(id);
 			
+			List <Category> addablecategories = this.cService.CatNotContains(thisProduct);
+			List <Category> prodAndCats = this.cService.findCatByProd(thisProduct);
+			model.addAttribute("addablecategories", addablecategories);
+			model.addAttribute("product", this.pService.getProduct(id));
+			model.addAttribute("prodAndCats", prodAndCats);
 		
 			
 			
 			return "showprod.jsp";
 	}
+	
+	@PostMapping("/addcattoprod/{id}")
+		public String addCatToProd(@ModelAttribute("Product")Product product,@RequestParam("categories")Long id, @PathVariable("id") Long productid) {
+			Product prod = this.pService.getProduct(productid);
+			Category cat = this.cService.getCategory(productid);
+			this.pService.addCatToProd(prod, cat);
+			return "redirect:/showprod/{id}";
+			
+	}
+	
+	@GetMapping("showcat/{id}")
+		public String showCat(Model model,@PathVariable("id") Long id) {
+			Category showCat = this.cService.getCategory(id);
+			model.addAttribute("notInCat", this.pService.findProdByCatNotContains(showCat));
+			model.addAttribute("category", showCat);
+			return"showcat.jsp";
+	}
+		
 }

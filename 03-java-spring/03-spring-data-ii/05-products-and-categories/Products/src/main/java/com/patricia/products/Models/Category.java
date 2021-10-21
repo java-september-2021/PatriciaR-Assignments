@@ -32,7 +32,7 @@ public class Category {
         joinColumns = @JoinColumn(name = "category_id"), 
         inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    private List<Product> products;
+    private List<Product>products;
 	public Category() {
 		
 	}

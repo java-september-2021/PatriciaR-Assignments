@@ -9,9 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-${prod.name}
 
-<h2>Product</h2>
+<h2>${product.name}</h2>
 <table>
     <thead>
         <tr>
@@ -28,11 +27,27 @@ ${prod.name}
             <td><c:out value="${product.name}"/></td>
             <td>${product.description}</td>
             <td>${product.price}</td>
-            <td><c:forEach items="${categories}" var="cat">{cat.name}</c:forEach></td>
+            <td><c:forEach items="${prodAndCats}" var="cat">${cat.name}</c:forEach></td>
            
         </tr>
        
     </tbody>
+    
+    <form:form action="/addcattoprod/${product.id}" method="Post" modelAttribute="Product">
+    <p>
+    	
+    	
+        <form:select path="categories">
+        <c:forEach items="${addablecategories}" var="cat">
+        <option value="${cat.id}">${cat.name}</option>
+        </c:forEach>
+        </form:select>	
+        </p>
+        <p>
+        <input type ="submit" value ="add">
+        </p>
+    
+    </form:form>
 </table>
 </body>
 </html>

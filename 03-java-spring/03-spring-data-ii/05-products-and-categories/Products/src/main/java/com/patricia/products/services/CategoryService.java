@@ -36,4 +36,13 @@ private final CategoryRepository catRepo;
 	public List<Category> CatNotContains(Product p){
 		return catRepo.findByProductsNotContains(p);
 	}
+	
+	public void addCatToProd(Product product, Category category) {
+		List<Product> products = category.getProducts();
+		products.add(product);
+		this.catRepo.save(category);
+	}
+		
+		
+	
 }
