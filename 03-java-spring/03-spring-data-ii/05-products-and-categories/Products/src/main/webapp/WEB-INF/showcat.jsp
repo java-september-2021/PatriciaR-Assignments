@@ -13,7 +13,7 @@
 
 <c:forEach items ="${category.products}" var="prod">
 ${prod.name}
-</c:forEach>c
+</c:forEach>
 
 
 </body>

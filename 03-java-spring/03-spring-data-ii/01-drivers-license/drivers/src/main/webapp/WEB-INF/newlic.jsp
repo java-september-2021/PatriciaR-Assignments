@@ -18,7 +18,7 @@
         <c:forEach items="${persons}" var="person">
         <option value="${person.id}">${person.first_name} ${person.last_name}</option>
         </c:forEach>
-        </form:select>
+        </form:select>	
     </p>
     <p>
         <form:label path="state">State</form:label>
